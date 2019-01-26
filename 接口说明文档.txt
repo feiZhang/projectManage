@@ -3,16 +3,70 @@
 文档格式：
 需求:xxxxxx
 要求说明:
-1.xxxxxx
-2.xxxxxx
+    1.xxxxxx
+    2.xxxxxx
 参数:
-1.xxxxxx
-2.xxxxxx
+    1.xxxxxx
+    2.xxxxxx
 返回结果(JSON)，样例:
-[{name:xxx,age:x},{name:yyy,age:y}]
+    [{name:xxx,age:x},{name:yyy,age:y}]
 结果说明:
-1.xxx
-2.xxx
+    1.xxx
+    2.xxx
+
+通讯录用户查询
+需求: 用户输入关键字，能根据姓名或手机号码模糊匹配查询用户信息
+要求说明:
+    1．输入只有一个关键字信息。
+    2．返回信息分页，测试查一个“王”就有3000条记录，所以必须增加分页。
+    3．通讯录查询是公共服务，不考虑用户权限，可以查询集团内所有的用户。
+参数:
+    1.关键字。
+    2.当前page
+    3.每页显示记录数
+返回结果(JSON)，样例:
+    [{
+    count:总记录,
+    totalPage:总页码
+        data:[{
+            "id":162362,
+            "name":"王伟",
+            "userCode":"E3100160278",
+            "deptId":770,
+            "deptName":"信息化支撑室",
+            "deptFullName":"中移铁通-河南分公司-信息和产品开发分中心-信息化支撑",
+            "mobile":"14783617800",
+            "tel":"",
+            "email":"14783617800@139.com",
+            "jobType":"技术类",
+            "jobDuty":null,
+            "jobParentGroup":"系统支撑",
+            "jobChildGroup":"系统开发管理",
+            "jobTitle":"开发测试管理",
+            "jobStatus":"在岗",
+            "jobLevel":"6",
+            "faverite":false
+        }]
+    }]
+结果data说明:
+    id":用户ID,
+    "name":用户姓名",
+    "userCode":"用户编号,
+    "deptId":用户所属部门ID,
+    "deptName":用户所属部门名称",
+    "deptFullName":用户所属部门全称
+    "mobile":用户手机号码,
+    "tel":用户办公电话,
+    "email":用户电子邮箱,
+    "jobType":职务职位—》职位条线
+    "jobDuty":职务职位—》职务
+    "jobParentGroup":职务职位—》主族名称,
+    "jobChildGroup":职务职位—》子族名称,
+    "jobTitle":职务职位—》职位名称
+    "jobStatus":职务职位—》工作状态,
+    "jobLevel":职务职位—》职位级别,
+    "faverite":是否收藏关注该用户
+
 
 
 需求：给定userId获取此用户的所有薪酬。
